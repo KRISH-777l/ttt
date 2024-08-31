@@ -1,0 +1,105 @@
+/* General body styling for a clean, centered look */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #fff; /* White text */
+    background: linear-gradient(135deg, #000000, #131313); /* Dynamic gradient background */
+    overflow: hidden; /* Prevent scrolling */
+}
+
+/* Welcome screen styling with centered content */
+#welcome-screen {
+    text-align: center;
+    animation: fadeIn 2s ease-in-out; /* Fade-in animation for smooth appearance */
+}
+
+.welcome-content {
+    background: rgba(0, 0, 0, 0.7); /* Semi-transparent background for welcome message */
+    padding: 30px;
+    border-radius: 15px; /* Rounded corners for a modern look */
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.1); /* Subtle shadow effect */
+}
+
+#welcome-screen h1 {
+    font-size: 48px;
+    margin-bottom: 10px;
+    color: #fff; /* White text */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Text shadow for depth */
+    letter-spacing: 2px; /* Spacing for a cleaner look */
+    font-weight: 300; /* Light font weight for elegance */
+}
+
+.subtitle {
+    font-size: 18px;
+    color: #ccc; /* Lighter gray color for the subtitle */
+    margin-bottom: 20px; /* Spacing between subtitle and button */
+    font-style: italic; /* Italic style for "Made by Chris" */
+}
+
+/* Stylish button with hover and click effects */
+#welcome-screen button {
+    font-size: 24px;
+    padding: 15px 30px;
+    background-color: #2d2d2d; /* Dark gray button color */
+    color: #fff; /* White text */
+    border: none;
+    cursor: pointer;
+    border-radius: 30px; /* Rounded button for a modern look */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease; /* Smooth transition for interactions */
+}
+
+#welcome-screen button:hover {
+    background-color: #5c5c5c; /* Slightly lighter shade on hover */
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.5); /* More intense shadow on hover */
+    transform: translateY(-3px); /* Slight movement up on hover */
+}
+
+#welcome-screen button:active {
+    transform: scale(0.95); /* Slight shrink on click */
+}
+
+/* Game screen styling with a fade-in effect */
+#game {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 10px;
+    opacity: 0;
+    transition: opacity 1s ease-in-out; /* Smooth transition for the game appearance */
+}
+
+/* Styling for each cell in the Tic Tac Toe game */
+.cell {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #2c2c2c; /* Dark gray background for cells */
+    border: 2px solid #444; /* Slightly lighter gray border */
+    font-size: 36px;
+    color: #fff; /* White text for the cells */
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions for hover effects */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Text shadow for a subtle 3D effect */
+}
+
+.cell:hover {
+    background-color: #333; /* Slightly lighter on hover */
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2); /* Glow effect on hover */
+}
+
+/* Keyframe animations for fade-in effects */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
