@@ -7,7 +7,7 @@ body {
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #fff; /* White text */
-    background: linear-gradient(135deg, #000000, #131313); /* Dynamic gradient background */
+    background: linear-gradient(135deg, #000000, #1a1a1a); /* Dynamic gradient background */
     overflow: hidden; /* Prevent scrolling */
 }
 
@@ -44,7 +44,7 @@ body {
 #welcome-screen button {
     font-size: 24px;
     padding: 15px 30px;
-    background-color: #2d2d2d; /* Dark gray button color */
+    background-color: #4a4a4a; /* Dark gray button color */
     color: #fff; /* White text */
     border: none;
     cursor: pointer;
@@ -65,12 +65,19 @@ body {
 
 /* Game screen styling with a fade-in effect */
 #game {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 1s ease-in-out; /* Smooth transition for the game appearance */
+}
+
+.game-grid {
     display: grid;
     grid-template-columns: repeat(3, 100px);
     grid-template-rows: repeat(3, 100px);
     gap: 10px;
-    opacity: 0;
-    transition: opacity 1s ease-in-out; /* Smooth transition for the game appearance */
+    margin-bottom: 20px; /* Space between grid and message */
 }
 
 /* Styling for each cell in the Tic Tac Toe game */
@@ -92,6 +99,19 @@ body {
 .cell:hover {
     background-color: #333; /* Slightly lighter on hover */
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.2); /* Glow effect on hover */
+}
+
+/* Styling for the congratulations message */
+.message {
+    font-size: 24px;
+    color: rgb(255, 255, 255); /* Green color for the winning message */
+    background-color: rgba(29, 29, 29, 0.7); /* Semi-transparent background */
+    padding: 15px 30px;
+    border-radius: 10px; /* Rounded corners for the message box */
+    text-align: center;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Green shadow for a glow effect */
+    opacity: 0;
+    transition: opacity 1s ease-in-out; /* Smooth fade-in for message */
 }
 
 /* Keyframe animations for fade-in effects */
