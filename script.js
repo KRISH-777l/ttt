@@ -3,6 +3,7 @@
 const startButton = document.getElementById('start-button');
 const welcomeScreen = document.getElementById('welcome-screen');
 const gameScreen = document.getElementById('game');
+const messageDiv = document.getElementById('message');
 const cells = document.querySelectorAll('.cell');
 let currentPlayer = 'X';
 const board = ['', '', '', '', '', '', '', '', ''];
@@ -12,7 +13,7 @@ startButton.addEventListener('click', () => {
     welcomeScreen.style.opacity = '0'; // Fade out welcome screen
     setTimeout(() => {
         welcomeScreen.style.display = 'none'; // Hide welcome screen after fade-out
-        gameScreen.style.display = 'grid'; // Show game screen
+        gameScreen.style.display = 'flex'; // Show game screen
         setTimeout(() => {
             gameScreen.style.opacity = '1'; // Fade in game screen
         }, 100); // Small delay for smoother transition
@@ -48,22 +49,37 @@ function checkWinner() {
         [2, 4, 6]
     ];
 
+    let winner = null;
+    
     winPatterns.forEach(pattern => {
         const [a, b, c] = pattern;
         if (board[a] && board[a] === board[b] && board[a] === board[c]) {
-            alert(`${board[a]} wins!`);
-            resetGame();
+            winner = board[a];
         }
     });
 
-    if (!board.includes('')) {
-        alert("It's a draw!");
+    if (winner) {
+        showMessage(`Congratulations! Player ${winner} wins the match!`);
+        resetGame();
+    } else if (!board.includes('')) {
+        showMessage("It's a draw!");
         resetGame();
     }
 }
 
+function showMessage(message) {
+    messageDiv.textContent = message; // Set the message text
+    messageDiv.style.opacity = '1'; // Show the message with fade-in
+    setTimeout(() => {
+        messageDiv.style.opacity = '0'; // Hide message after 3 seconds
+    }, 3000);
+}
+
 function resetGame() {
-    board.fill('');
-    cells.forEach(cell => cell.textContent = '');
-    currentPlayer = 'X';
+    setTimeout(() => {
+        board.fill('');
+        cells.forEach(cell => cell.textContent = '');
+        currentPlayer = 'X';
+        messageDiv.textContent = ''; // Clear any message
+    }, 3000); // Reset the game after the message disappears
 }
